@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>whoisolivasx | Social Hub</title>
+    <title>whoisolivasx</title>
+    
+    <!-- MÉTODO TRIPLE PARA FAVICON -->
+    <link rel="icon" type="image/png" href="assets/img/olivaslogo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/olivaslogo.png">
+    <link rel="apple-touch-icon" href="assets/img/olivaslogo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -17,7 +23,7 @@
             --border-dark: #1f1f24; 
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; height: 100%; }
 
         body {
             margin: 0;
@@ -25,6 +31,9 @@
             background-color: var(--bg-pure-black);
             color: var(--text-white);
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         #bg-canvas {
@@ -101,14 +110,16 @@
             background: rgba(0, 242, 255, 0.05);
         }
 
-        /* --- Grid & Secciones --- */
+        /* --- Content Section --- */
         .content-section {
             position: relative;
             z-index: 2;
             padding: 20px 0 60px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
+            flex-grow: 1;
+            width: 100%;
         }
 
         .subtitle {
@@ -134,20 +145,25 @@
             box-shadow: 0 0 8px var(--accent-neon-blue);
         }
 
+        /* GRID CENTRADO INTELIGENTE */
         .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
             padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* Contenedor especial para centrar Apoyo */
+        /* CONTENEDOR DE APOYO CORREGIDO */
         .support-flex-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .social-item {
@@ -164,11 +180,15 @@
             position: relative;
             overflow: hidden;
             background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+            width: 100%;
+            max-width: 300px; 
+            box-sizing: border-box;
         }
 
+        /* AJUSTE PARA LOS 3 BOTONES DE APOYO */
         .support-item {
-            width: 100%;
-            max-width: 350px;
+            flex: 1 1 300px; 
+            max-width: 320px;
         }
 
         .social-item i { font-size: 1.8rem; color: var(--accent-neon-blue); }
@@ -193,17 +213,13 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 2;
+            margin-top: auto; 
         }
 
         .corp-name { color: var(--accent-neon-blue); font-weight: 700; text-transform: uppercase; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         @media (max-width: 768px) {
-            .social-grid { grid-template-columns: 1fr; }
+            .social-item { max-width: 100%; flex: 1 1 100%; } 
             .page-header { padding-top: 100px; }
             .back-link { left: 50%; transform: translateX(-50%); top: 20px; }
         }
@@ -251,6 +267,13 @@
                     <h2>@whoisolivasx</h2>
                 </div>
             </a>
+            <a href="https://discord.gg/MzHHqAZA8Y" target="_blank" class="social-item">
+                <i class="fab fa-discord"></i>
+                <div class="social-info">
+                    <span>DISCORD</span>
+                    <h2>Comunidad</h2>
+                </div>
+            </a>
             <a href="https://www.facebook.com/whoisolivasx" target="_blank" class="social-item">
                 <i class="fab fa-facebook"></i>
                 <div class="social-info">
@@ -275,6 +298,13 @@
                 <div class="social-info">
                     <span>DONACIONES</span>
                     <h2>PayPal.me</h2>
+                </div>
+            </a>
+            <a href="https://www.patreon.com/cw/whoisolivasx" target="_blank" class="social-item support-item">
+                <i class="fab fa-patreon"></i>
+                <div class="social-info">
+                    <span>EXCLUSIVO</span>
+                    <h2>Patreon</h2>
                 </div>
             </a>
             <a href="https://www.amazon.com.mx/hz/wishlist/ls/30Q5HJNU3ES6J?ref_=wl_share" target="_blank" class="social-item support-item">
